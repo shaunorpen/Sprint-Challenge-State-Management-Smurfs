@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addSmurfToApi } from '../state/actionCreators';
+import { addSmurf } from '../state/actionCreators';
 
 export default function Form () {
     const initialFormValues = {
@@ -24,7 +24,7 @@ export default function Form () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(addSmurfToApi(smurfsApi, smurf));
+        dispatch(addSmurf(smurfsApi, smurf));
         setSmurf(initialFormValues);
     }
 
