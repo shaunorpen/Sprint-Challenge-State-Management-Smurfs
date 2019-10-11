@@ -15,13 +15,6 @@ export function getSmurfs(smurfs) {
   };
 }
 
-export function addSmurf(smurf) {
-  return {
-    type: types.ADD_SMURF,
-    payload: smurf,
-  };
-}
-
 export function deleteSmurf(id) {
   return {
       type: types.DELETE_SMURF,
@@ -31,6 +24,17 @@ export function deleteSmurf(id) {
 
 export const getSmurfsFromApi = (url) => dispatch => {
   axios.get(url)
+    .then(res => {
+      const smurfs = [...res.data];
+      dispatch(getSmurfs(smurfs));
+    })
+    .catch(err => {
+      dispatch(addError(err.message));
+    });
+};
+
+export const addSmurfToApi = (url, smurf) => dispatch => {
+  axios.post(url, smurf)
     .then(res => {
       const smurfs = [...res.data];
       dispatch(getSmurfs(smurfs));

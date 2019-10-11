@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import uuid from 'uuid';
-import { addSmurf } from '../state/actionCreators';
+import { addSmurfToApi } from '../state/actionCreators';
 
 export default function Form () {
     const initialFormValues = {
         name: '',
         age: '',
-        height: '',
-        id: uuid()
+        height: ''
     };
     
+    const smurfsApi = 'http://localhost:3333/smurfs';
+
     const [smurf, setSmurf] = useState(initialFormValues);
 
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function Form () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(addSmurf(smurf));
+        dispatch(addSmurfToApi(smurfsApi, smurf));
         setSmurf(initialFormValues);
     }
 
