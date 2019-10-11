@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import Smurfs from './Smurfs';
-import { getSmurfs } from '../state/actionCreators';
+import { getSmurfsFromApi } from '../state/actionCreators';
 
 export default function App (props) {
   const smurfs = useSelector(state => state.smurfs);
@@ -10,7 +10,7 @@ export default function App (props) {
   const smurfsApi = 'http://localhost:3333/smurfs';
 
   useEffect(() => {
-    dispatch(getSmurfs(smurfsApi));
+    dispatch(getSmurfsFromApi(smurfsApi));
   }, [dispatch, smurfsApi]);
 
   return (
