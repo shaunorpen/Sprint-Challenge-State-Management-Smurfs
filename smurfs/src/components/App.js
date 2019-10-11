@@ -5,7 +5,7 @@ import Smurfs from './Smurfs';
 import { getSmurfs } from '../state/actionCreators';
 
 export default function App (props) {
-  const smurfs = useSelector(state => state.village);
+  const smurfs = useSelector(state => state.smurfs);
   const dispatch = useDispatch();
   const smurfsApi = 'http://localhost:3333/smurfs';
 
