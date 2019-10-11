@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Smurf (props) {
-    debugger
     return (
         <div>
             <div>Name: {props.smurf.name}</div>
