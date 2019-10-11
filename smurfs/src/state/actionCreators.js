@@ -27,7 +27,6 @@ export const getSmurfsFromApi = (url) => dispatch => {
 };
 
 export const addSmurf = (url, smurf) => dispatch => {
-  debugger
   axios.post(url, smurf)
     .then(res => {
       const smurfs = [...res.data];
@@ -39,15 +38,12 @@ export const addSmurf = (url, smurf) => dispatch => {
 };
 
 export const deleteSmurf = (url, id) => dispatch => {
-  debugger
   axios.delete(url + id.toString())
     .then(res => {
-      debugger
       const smurfs = [...res.data];
       dispatch(getSmurfs(smurfs));
     })
     .catch(err => {
-      debugger
       dispatch(addError(err.message));
     });
 };
