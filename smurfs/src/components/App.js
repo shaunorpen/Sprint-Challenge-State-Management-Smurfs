@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import Smurfs from './Smurfs';
+import Form from './Form';
+
 import { getSmurfsFromApi } from '../state/actionCreators';
 
 export default function App (props) {
@@ -17,6 +19,7 @@ export default function App (props) {
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
       <Smurfs smurfs={smurfs} />
+      <Form />
     </div>
   );
 }
