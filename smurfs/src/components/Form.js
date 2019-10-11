@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import uuid from 'uuid';
 import { addSmurf } from '../state/actionCreators';
 
 export default function Form () {
-    const [smurf, setSmurf] = useState({
+    const initialFormValues = {
         name: '',
         age: 0,
         height: 0,
-    });
+        id: uuid()
+    };
+    
+    const [smurf, setSmurf] = useState(initialFormValues);
 
     const dispatch = useDispatch();
 
@@ -19,9 +23,9 @@ export default function Form () {
     }
 
     const handleSubmit = (event) => {
-        debugger
         event.preventDefault();
         dispatch(addSmurf(smurf));
+        setSmurf(initialFormValues);
     }
 
     return (

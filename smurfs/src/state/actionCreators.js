@@ -32,7 +32,7 @@ export function deleteSmurf(id) {
 export const getSmurfsFromApi = (url) => dispatch => {
   axios.get(url)
     .then(res => {
-      const smurfs = res.data;
+      const smurfs = [...res.data];
       dispatch(getSmurfs(smurfs));
     })
     .catch(err => {
