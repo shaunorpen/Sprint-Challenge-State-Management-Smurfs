@@ -6,8 +6,8 @@ import { addSmurf } from '../state/actionCreators';
 export default function Form () {
     const initialFormValues = {
         name: '',
-        age: 0,
-        height: 0,
+        age: '',
+        height: '',
         id: uuid()
     };
     
@@ -32,9 +32,12 @@ export default function Form () {
         <div>
             <h2>Add a Smurf!</h2>
             <form>
-                <input type='text' placeholder='Name' name='name' value={smurf.name} onChange={handleChange} />
-                <input type='number' placeholder='Age' name='age' value={smurf.age} onChange={handleChange} />
-                <input type='number' placeholder='Height' name='height' value={smurf.height} onChange={handleChange} />
+                <label htmlFor='name'>Name: </label>
+                <input type='text' placeholder='Enter name...' id='name' name='name' value={smurf.name} onChange={handleChange} />
+                <label htmlFor='name'>Age: </label>
+                <input type='number' placeholder='Enter age...' id='age' name='age' value={smurf.age} onChange={handleChange} />
+                <label htmlFor='name'>Height: </label>
+                <input type='number' placeholder='Enter height...' id='height' name='height' value={smurf.height} onChange={handleChange} />
                 <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
